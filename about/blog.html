@@ -1,0 +1,25 @@
+---
+title: Blog
+layout: default
+---
+
+{% for post in site.posts %}
+
+	<h2><a href="{{ post.url }}">{{ post.title }} &rarr;</a></h2>
+	<div class="box">
+		<p>{{ post.excerpt }}</p>
+	</div>
+	<div class='date'> {{post.author}}  &mdash; {{post.date | date_to_string}}</div>
+
+{% endfor %}
+
+
+<!-- 
+<ul>
+  {% for post in site.pages %}
+    <li>
+      <a href="{{ post.url }}">{{ post.title }}</a>
+      <p>{{ post.excerpt }}</p>
+    </li>
+  {% endfor %}
+</ul> -->
