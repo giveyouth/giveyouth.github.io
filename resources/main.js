@@ -36,4 +36,10 @@ function slideshow(el){
 }
 window.onload = function(){
   for(var i = 0; i < slideshows.length; i++) slideshow(slideshows[i]);
+  var images = document.getElementById("content").getElementsByTagName('img');
+  for(var i = 0; i < images.length; i++){
+    // this fixes a weird bug where text overflow sucks
+    images[i].style.margin = '1px'
+  }
 }
+
