@@ -145,22 +145,27 @@ a {
 	h1, h2, h3, h4 {
 		// margin-top: 0;
 		margin-bottom: 10px;
+		&:first-child {
+			margin-top: 0;	
+		}
 	}
 	.box {
+		overflow: auto;
 		background: @header;
 		padding: @spacing;
 		border: @border;
 		margin-bottom: @spacing;
+
+		img {
+			padding: 10px;
+			float: right;
+		}
 	}
 	img.boxed {
 		background: white;
 		border: @border;
 	}
 
-	img {
-		padding: 10px;
-		float: right;
-	}
 }
 
 .slideshow {
