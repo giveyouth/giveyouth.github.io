@@ -136,18 +136,24 @@ a {
 	height: 50px;
 }
 
+p {
+	margin-top: @spacing;
+	margin-bottom: @spacing;
+}
 
 .content {
 	margin: @spacing;
 	margin-right: 0;
 	width: @content;
 	float: right; /*fixes text selection*/
+	margin-top: 0;
 	h1, h2, h3, h4 {
 		// margin-top: 0;
+		margin-top: @spacing;
 		margin-bottom: 10px;
-		&:first-child {
-			margin-top: 0;	
-		}
+		// &:first-child {
+		// 	margin-top: 0;	
+		// }
 	}
 	.box {
 		overflow: auto;
@@ -155,6 +161,8 @@ a {
 		padding: @spacing;
 		border: @border;
 		margin-bottom: @spacing;
+		margin-top: @spacing;
+		padding-top: 0;
 
 		img {
 			padding: 10px;
@@ -166,6 +174,35 @@ a {
 		border: @border;
 	}
 
+	.date {
+		text-align: right;
+		font-style: italic;
+	}
+
+}
+
+.sticky {
+	
+	width: 300px;
+	padding: @spacing;
+	margin: @spacing;
+	margin-right: 0;
+	float: right;
+	background-color: #f1e8ba;
+	background: url(/resources/images/extra_clean_paper.png);
+	border: 1px solid #dbc557;
+	font-size: 90%;
+	h1, h2, h3, h4 {
+		margin: 0;
+	}
+	ul {
+		padding: 0;
+		padding-left: @spacing;
+
+		li {
+			margin-bottom: @spacing;
+		}
+	}
 }
 
 .slideshow {
@@ -188,4 +225,12 @@ a {
 
 input {
 	border: 1px solid black;
+}
+
+
+.nagger {
+	opacity: 0;
+	&:hover {
+		opacity: 1;
+	}
 }

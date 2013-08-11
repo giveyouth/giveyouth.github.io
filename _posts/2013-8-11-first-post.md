@@ -1,4 +1,8 @@
-# GIVE
+---
+layout: post
+title: First Post
+author: Kevin Kwok
+---
 
 This isn't some brilliant design for a web site. Actually, this is quite possibly my first legitimate attempt at designing something. It's not really something for winning the Pulitzer of aesthetic usability. 
 
