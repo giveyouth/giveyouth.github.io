@@ -22,7 +22,7 @@ jQuery.fn.slidesort = function(ranker){
 	var q = $(this).queue('slidesort')
 	if(q) q.splice(1, q.length);
 	
-	$(this).queue('slidesort', function(){
+	$(this).queue('slidesort', function(next){
 		var element_mapping = {};
 		var flag_mapping = {};
 		$($(this).each(function(i){
@@ -50,7 +50,6 @@ jQuery.fn.slidesort = function(ranker){
 		var exempt = $(longestIncreasingSequence(ordered_ranks)).map(function(){
 			return element_mapping[this]
 		});
-		var self = $(this);
 		
 		$(this).not(exempt).each(function(){
 			var clone = $(this).clone().hide()
@@ -60,7 +59,7 @@ jQuery.fn.slidesort = function(ranker){
 			clone.slideDown('slow')
 		}).slideUp('slow', function(){
 			$(this).remove();
-			self.dequeue();
+			next()
 		})
 		
 	})
