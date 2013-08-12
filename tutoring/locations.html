@@ -85,8 +85,15 @@ title: Locations
     path: google.maps.SymbolPath.CIRCLE,
     scale: 10
   },
-        			animation: google.maps.Animation.DROP
+  draggable: true
+        			// animation: google.maps.Animation.DROP
         		})
+
+        
+        google.maps.event.addListener(marker, 'dragend', function(evt){
+        	moveMarker(evt.latLng)
+
+        })
         	}else{
         		marker.setPosition(loc)
         		sortLocations(loc.lat(), loc.lng())
