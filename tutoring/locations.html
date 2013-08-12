@@ -3,6 +3,238 @@ layout: default
 title: Locations
 ---
 
+<style>
+.location {
+	/*background: #c0ffee;*/
+	overflow: auto
+}
+
+.search {
+	padding: 10px;
+	width: 300px;
+	float: right;
+}
+
+.dist {
+	float: right;
+	font-weight: normal;
+	font-style: italic;
+	font-size: 75%;
+}
+</style>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+ <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCsJh3X9U0AkjsDj0lrqJwq4idqJ7mdd6w&sensor=false"></script>
+<script src="/resources/slidesort.js"></script>
+ <script type="text/javascript">
+ 	var map;
+
+      function initialize() {
+      	var minlat = 360, maxlat = -360, minlon = 360, maxlon = -360;
+      $('.location').each(function(){
+         	var parts = $(this).data('latlong').split(',');
+         	var lat = parseFloat(parts[0]), lon = parseFloat(parts[1]);
+         	minlat = Math.min(lat, minlat); maxlat = Math.max(lat, maxlat);
+         	minlon = Math.min(lon, minlon); maxlon = Math.max(lon, maxlon);
+       })
+
+        var mapOptions = {
+          center: new google.maps.LatLng((minlat + maxlat)/2,(minlon + maxlon)/2),
+          zoom: 10,
+          minZoom: 9,
+          streetViewControl: false,
+          mapTypeControl: false,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        google.maps.visualRefresh = true;
+
+        map = new google.maps.Map(document.getElementById("map-canvas"),
+            mapOptions);
+
+        
+
+        $('.location').each(function(){
+        	var div = $(this);
+         	var parts = $(this).data('latlong').split(',');
+         	var lat = parseFloat(parts[0]), lon = parseFloat(parts[1]);
+         	var name = $(this).find('h3').text();
+         	var pos = new google.maps.LatLng(lat, lon);
+         	var marker = new google.maps.Marker({
+			      position: pos,
+			      map: map,
+			      title: name
+			  });
+         	google.maps.event.addListener(marker, 'click', function(){
+         		// div.slideUp()
+         		sortLocations(lat, lon)
+         		moveMarker(pos)
+         		$('.search').attr('placeholder', name)
+         	});
+         })
+
+        // var fromPoint = new google.maps.LatLng((minlat + maxlat)/2,(minlon + maxlon)/2);
+        // var fromLat = (minlat + maxlat)/2, fromLon = (minlon + maxlon)/2;
+        // var fromLat = minlat, fromLon = minlon
+        var fromLat = 38.837401, fromLon = -77.164278
+        var marker;
+        function moveMarker(loc){
+        	if(typeof marker == 'undefined')	{
+        		marker = new google.maps.Marker({
+        			position: loc,
+        			map: map,
+        			icon: {
+    path: google.maps.SymbolPath.CIRCLE,
+    scale: 10
+  },
+        			animation: google.maps.Animation.DROP
+        		})
+        	}else{
+        		marker.setPosition(loc)
+        		sortLocations(loc.lat(), loc.lng())
+        	}
+        }
+        google.maps.event.addListener(map, 'click', function(evt){
+        	moveMarker(evt.latLng)
+
+        })
+        
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+
+      function sortLocations(fromLat, fromLon){
+
+      	$('.location').slidesort(function(e){
+
+        	var parts = e.data('latlong').split(',');
+        	var lat = parseFloat(parts[0]), lon = parseFloat(parts[1]);
+        	// whatever screw the haversine, euclid is mah frand
+        	// var ll = new google.maps.LatLng(lat, lon);
+        	// var dist = google.maps.geometry.spherical.computeDistanceBetween(ll, fromPoint);
+        	var dist = Math.pow(fromLat - lat, 2) + Math.pow(fromLon - lon, 2);
+        	// e.find('.dist').text(Math.sqrt(dist) + ' degrees')
+        	if(!e.find('.dist').length){
+        		e.find('h3').append($("<div></div>").addClass('dist'))
+        	}
+        	var miles = Math.round(24901 / 360 *  Math.sqrt(dist));
+        	if(miles == 0){
+        		e.find('.dist').text('super close')
+        	}else{
+        		e.find('.dist').text('about ' + miles + ' miles away')
+        	}
+        	
+        	
+
+        	return dist;
+        })
+      }
+    </script>
+
+<!-- <h2>Locations</h2> -->
+
 <p>
-<img src="/resources/images/map.jpg" class="boxed">
+ <div id="map-canvas" class="boxed" style="height: 400px"></div>
 </p>
+<div style="overflow: auto">
+<input type="text" class="search" placeholder="Enter an address or zip code">
+<!-- <ul class="microwave">
+<li>Everything</li><li>Saturday</li><li>Sunday</li>
+</ul>
+ -->
+<!-- 
+<input type="radio" name="filter" value="all" id="all">
+<label for="all">Everything</label>
+<input type="radio" name="filter" value="sat" id="sat">
+<label for="sat">Sunday</label>
+<input type="radio" name="filter" value="sun" id="sun">
+<label for="sun">Sunday</label>
+ -->
+
+</div>
+
+<div class="location" data-latlong="38.837401,-77.164278">
+	<h3>Mason District Center</h3> 
+	<div class="box">
+		<p>6507 Columbia Pike, Annandale, VA 22003-2029</p>
+	</div>
+</div>
+<div class="location" data-latlong="38.856254 , -77.188329">
+	<h3>James Lee Center</h3> 
+	<div class="box">
+		<p>2855-A Annandale Road, Falls Church, VA 22042</p>
+	</div>
+</div>
+
+<div class="location" data-latlong="38.843028 , -77.1363">
+	<h3>Bailey's Center</h3> 
+	<div class="box">
+		<p>5920 Summers Lane, Falls Church, VA 22041</p>
+	</div>
+</div>
+
+<div class="location" data-latlong="38.941586 , -77.36582">
+	<h3>Southgate Center</h3> 
+	<div class="box">
+		<p>12125 Pinecrest Road, Reston, VA 20191</p>
+	</div>
+</div>
+
+<div class="location" data-latlong="38.871274 , -77.148012">
+	<h3>Willston Multicultural Center</h3> 
+	<div class="box">
+		<p>12125 Pinecrest Road, Reston, VA 20191</p>
+	</div>
+</div>
+
+
+<div class="location" data-latlong="38.837563 , -77.441611">
+	<h3>Centreville Regional Library</h3> 
+	<div class="box">
+		<p>14200 Saint Germain Drive Centreville, VA 20121</p>
+	</div>
+</div>
+
+<div class="location" data-latlong="38.972064 , -77.38668">
+	<h3>Herndon Fortnightly Library</h3> 
+	<div class="box">
+		<p>768 Center Street Herndon, VA 20170</p>
+	</div>
+</div>
+
+
+<div class="location" data-latlong="38.779329 , -77.192147">
+	<h3>Richard Byrd Library</h3> 
+	<div class="box">
+		<p>7250 Commerce Street Springfield, VA 22150</p>
+	</div>
+</div>
+
+
+<div class="location" data-latlong="38.865941 , -77.201758">
+	<h3>Thomas Jefferson Library</h3> 
+	<div class="box">
+		<p>7415 Arlington Boulevard Falls Church, VA 22042</p>
+	</div>
+</div>
+
+
+<div class="location" data-latlong="38.851364 , -77.142943">
+	<h3>Woodrow Wilson Library</h3> 
+	<div class="box">
+		<p>6101 Knollwood Drive Falls Church, VA 22041</p>
+	</div>
+</div>
+
+
+<div class="location" data-latlong="38.998872 , -77.402032">
+	<h3>Sterling Library</h3> 
+	<div class="box">
+		<p>120 Enterprise Street Sterling, VA 20164</p>
+	</div>
+</div>
+
+
+<div class="location" data-latlong="38.812994 , -77.150258">
+	<h3>Lincolnia Community Resource Center</h3> 
+	<div class="box">
+		<p>5128 Lincoln Avenue Alexandria, VA 22312</p>
+	</div>
+</div>

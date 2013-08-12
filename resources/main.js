@@ -39,7 +39,7 @@ window.onload = function(){
   var images = document.getElementById("content").getElementsByTagName('img');
   for(var i = 0; i < images.length; i++){
     // this fixes a weird bug where text overflow sucks
-    images[i].style.margin = '1px'
+    images[i].style.marginRight = '1px'
   }
 }
 

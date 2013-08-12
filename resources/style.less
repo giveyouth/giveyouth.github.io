@@ -169,7 +169,7 @@ p {
 			float: right;
 		}
 	}
-	img.boxed {
+	.boxed {
 		background: white;
 		border: @border;
 	}
@@ -224,7 +224,7 @@ p {
 
 
 input {
-	border: 1px solid black;
+	border: @border;
 }
 
 
@@ -233,4 +233,26 @@ input {
 	&:hover {
 		opacity: 1;
 	}
+}
+
+ul.microwave {
+	padding: 0;
+	display: inline-block;
+	// margin: 0;
+	border-left: @border;
+	li {
+		display: inline;
+		list-style-type: none;
+		padding: 10px;
+		border: @border;
+		border-left: 0;
+	}
+}
+
+
+
+hr {
+	border: 0;
+	margin-top: @spacing;
+	border-top: @border;
 }
