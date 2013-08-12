@@ -96,8 +96,9 @@ title: Locations
         })
         	}else{
         		marker.setPosition(loc)
-        		sortLocations(loc.lat(), loc.lng())
         	}
+        	
+        	sortLocations(loc.lat(), loc.lng())
         }
         google.maps.event.addListener(map, 'click', function(evt){
         	moveMarker(evt.latLng)
