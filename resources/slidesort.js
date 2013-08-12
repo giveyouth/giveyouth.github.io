@@ -43,7 +43,6 @@ jQuery.fn.slidesort = function(ranker){
 		ordered_ranks.push($(this).data('__slidesort'))
 	})
 
-	console.log(ordered_ranks)
 	var exempt = $(longestIncreasingSequence(ordered_ranks)).map(function(){
 		return element_mapping[this]
 	});
