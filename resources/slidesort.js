@@ -19,43 +19,50 @@ jQuery.fn.slidesort = function(ranker){
 	// we slide up all the elements which aren't part of the 
 	// longest increasing subsequence, move them around and 
 	// insert them where appropriate
-	var element_mapping = {};
-	var flag_mapping = {};
-	$($(this).each(function(i){
-		// apply schwartzian transform mapping each thing to the rank
-		// based on whatever the ranker function is
-		$(this).data('__slidesort', ranker($(this)))
-
-		var flag = document.createTextNode('');
-		this.parentNode.insertBefore(flag, this);
-		// $(this).data('__slideflag', flag);
-		flag_mapping[i] = flag;
-	}).toArray().sort(function(a, b){
-		// do the main sorting bidnezzz
-		return $(a).data('__slidesort') - $(b).data('__slidesort')
-	})).each(function(i){
-		// now that we have each index, shove the index back in place
-		$(this).data('__slidesort', i);
-		element_mapping[i] = this;
-	});
-	var ordered_ranks = [];
-	$(this).each(function(){
-		ordered_ranks.push($(this).data('__slidesort'))
-	})
-
-	var exempt = $(longestIncreasingSequence(ordered_ranks)).map(function(){
-		return element_mapping[this]
-	});
-
-	$(this).not(exempt).each(function(){
-		var clone = $(this).clone().hide()
-		$(this).slideUp('slow', function(){
-			$(this).remove()
+	var q = $(this).queue('slidesort')
+	if(q) q.splice(1, q.length);
+	
+	$(this).queue('slidesort', function(){
+		var element_mapping = {};
+		var flag_mapping = {};
+		$($(this).each(function(i){
+			// apply schwartzian transform mapping each thing to the rank
+			// based on whatever the ranker function is
+			$(this).data('__slidesort', ranker($(this)))
+	
+			var flag = document.createTextNode('');
+			this.parentNode.insertBefore(flag, this);
+			// $(this).data('__slideflag', flag);
+			flag_mapping[i] = flag;
+		}).toArray().sort(function(a, b){
+			// do the main sorting bidnezzz
+			return $(a).data('__slidesort') - $(b).data('__slidesort')
+		})).each(function(i){
+			// now that we have each index, shove the index back in place
+			$(this).data('__slidesort', i);
+			element_mapping[i] = this;
+		});
+		var ordered_ranks = [];
+		$(this).each(function(){
+			ordered_ranks.push($(this).data('__slidesort'))
 		})
-		var flag = flag_mapping[$(this).data('__slidesort')];
-		clone.insertBefore(flag)
-		flag.parentNode.removeChild(flag);
-		clone.slideDown('slow')
+	
+		var exempt = $(longestIncreasingSequence(ordered_ranks)).map(function(){
+			return element_mapping[this]
+		});
+		var self = $(this);
+		
+		$(this).not(exempt).each(function(){
+			var clone = $(this).clone().hide()
+			var flag = flag_mapping[$(this).data('__slidesort')];
+			clone.insertBefore(flag)
+			flag.parentNode.removeChild(flag);
+			clone.slideDown('slow')
+		}).slideUp('slow', function(){
+			$(this).remove();
+			self.dequeue();
+		})
+		
 	})
 
 
