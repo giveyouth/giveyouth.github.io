@@ -63,6 +63,10 @@ jQuery.fn.slidesort = function(ranker){
 		})
 		
 	})
+	
+	if($(this).queue('slidesort').length == 1){
+		$(this).dequeue('slidesort')
+	}
 
 
 
