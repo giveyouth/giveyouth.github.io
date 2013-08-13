@@ -124,7 +124,9 @@ title: Locations
         	}
         	var miles = Math.round(24901 / 360 *  Math.sqrt(dist));
         	if(miles == 0){
-        		e.find('.dist').text('super close')
+        		e.find('.dist').text('less than a mile away')
+        	}else if(miles == 1){
+        		e.find('.dist').text('about a mile away')
         	}else{
         		e.find('.dist').text('about ' + miles + ' miles away')
         	}
@@ -161,34 +163,34 @@ title: Locations
 <div class="location" data-latlong="38.837401,-77.164278">
 	<h3>Mason District Center</h3> 
 	<div class="box">
-		<p>6507 Columbia Pike, Annandale, VA 22003-2029</p>
+		<p>6507 Columbia Pike<br>Annandale, VA 22003-2029</p>
 	</div>
 </div>
 <div class="location" data-latlong="38.856254 , -77.188329">
 	<h3>James Lee Center</h3> 
 	<div class="box">
-		<p>2855-A Annandale Road, Falls Church, VA 22042</p>
+		<p>2855-A Annandale Road<br> Falls Church, VA 22042</p>
 	</div>
 </div>
 
 <div class="location" data-latlong="38.843028 , -77.1363">
 	<h3>Bailey's Center</h3> 
 	<div class="box">
-		<p>5920 Summers Lane, Falls Church, VA 22041</p>
+		<p>5920 Summers Lane<br> Falls Church, VA 22041</p>
 	</div>
 </div>
 
 <div class="location" data-latlong="38.941586 , -77.36582">
 	<h3>Southgate Center</h3> 
 	<div class="box">
-		<p>12125 Pinecrest Road, Reston, VA 20191</p>
+		<p>12125 Pinecrest Road<br> Reston, VA 20191</p>
 	</div>
 </div>
 
 <div class="location" data-latlong="38.871274 , -77.148012">
 	<h3>Willston Multicultural Center</h3> 
 	<div class="box">
-		<p>12125 Pinecrest Road, Reston, VA 20191</p>
+		<p>12125 Pinecrest Road<br> Reston, VA 20191</p>
 	</div>
 </div>
 
@@ -196,14 +198,14 @@ title: Locations
 <div class="location" data-latlong="38.837563 , -77.441611">
 	<h3>Centreville Regional Library</h3> 
 	<div class="box">
-		<p>14200 Saint Germain Drive Centreville, VA 20121</p>
+		<p>14200 Saint Germain Drive<br> Centreville, VA 20121</p>
 	</div>
 </div>
 
 <div class="location" data-latlong="38.972064 , -77.38668">
 	<h3>Herndon Fortnightly Library</h3> 
 	<div class="box">
-		<p>768 Center Street Herndon, VA 20170</p>
+		<p>768 Center Street<br> Herndon, VA 20170</p>
 	</div>
 </div>
 
@@ -211,7 +213,7 @@ title: Locations
 <div class="location" data-latlong="38.779329 , -77.192147">
 	<h3>Richard Byrd Library</h3> 
 	<div class="box">
-		<p>7250 Commerce Street Springfield, VA 22150</p>
+		<p>7250 Commerce Street<br> Springfield, VA 22150</p>
 	</div>
 </div>
 
@@ -219,7 +221,7 @@ title: Locations
 <div class="location" data-latlong="38.865941 , -77.201758">
 	<h3>Thomas Jefferson Library</h3> 
 	<div class="box">
-		<p>7415 Arlington Boulevard Falls Church, VA 22042</p>
+		<p>7415 Arlington Boulevard<br> Falls Church, VA 22042</p>
 	</div>
 </div>
 
@@ -227,7 +229,7 @@ title: Locations
 <div class="location" data-latlong="38.851364 , -77.142943">
 	<h3>Woodrow Wilson Library</h3> 
 	<div class="box">
-		<p>6101 Knollwood Drive Falls Church, VA 22041</p>
+		<p>6101 Knollwood Drive<br> Falls Church, VA 22041</p>
 	</div>
 </div>
 
@@ -235,7 +237,7 @@ title: Locations
 <div class="location" data-latlong="38.998872 , -77.402032">
 	<h3>Sterling Library</h3> 
 	<div class="box">
-		<p>120 Enterprise Street Sterling, VA 20164</p>
+		<p>120 Enterprise Street <br>Sterling, VA 20164</p>
 	</div>
 </div>
 
@@ -243,6 +245,6 @@ title: Locations
 <div class="location" data-latlong="38.812994 , -77.150258">
 	<h3>Lincolnia Community Resource Center</h3> 
 	<div class="box">
-		<p>5128 Lincoln Avenue Alexandria, VA 22312</p>
+		<p>5128 Lincoln Avenue<br> Alexandria, VA 22312</p>
 	</div>
 </div>
