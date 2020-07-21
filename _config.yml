@@ -1,0 +1,8 @@
+title: GIVE
+description: promoting youth leadership with long backronyms
+google_analytics: UA-43047392-1
+show_downloads: true
+theme: jekyll-theme-dinky
+
+gems:
+  - jekyll-mentions
