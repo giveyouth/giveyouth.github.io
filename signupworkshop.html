@@ -42,7 +42,7 @@
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo mr-auto"><a href="index.html">Mentor</a></h1>
+      <h1 class="logo mr-auto"><a href="index.html">Give</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -52,7 +52,12 @@
           <li><a href="about.html">About</a></li>
           <li><a href="courses.html">Courses</a></li>
           <li><a href="trainers.html">Trainers</a></li>
-          <li class="active"><a href="events.html">Events</a></li>
+          <li class="drop-down active"><a href="events.html">Events</a>
+            <ul>
+              <li><a href="Events.html">Information</a></li>
+              <li><a href="signupworkshop.html">Sign Up</a></li>
+            </ul>
+          </li>
           <li><a href="pricing.html">Pricing</a></li>
           <li class="drop-down"><a href="">Drop Down</a>
             <ul>
@@ -86,46 +91,34 @@
     <!-- ======= Breadcrumbs ======= -->
     <div class="breadcrumbs" data-aos="fade-in">
       <div class="container">
-        <h2>Events</h2>
-        <p>Est dolorum ut non facere possimus quibusdam eligendi voluptatem. Quia id aut similique quia voluptas sit quaerat debitis. Rerum omnis ipsam aperiam consequatur laboriosam nemo harum praesentium. </p>
+        <h2>Summer Workshops</h2>
       </div>
     </div><!-- End Breadcrumbs -->
-
-    <!-- ======= Events Section ======= -->
-    <section id="events" class="events">
-      <div class="container" data-aos="fade-up">
-
-        <div class="row">
-          <div class="col-md-6 d-flex align-items-stretch">
-            <div class="card">
-              <div class="card-img">
-                <img src="assets/img/events-1.jpg" alt="...">
-              </div>
-              <div class="card-body">
-                <h5 class="card-title"><a href="">Introduction to webdesign</a></h5>
-                <p class="font-italic text-center">Sunday, September 26th at 7:00 pm</p>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 d-flex align-items-stretch">
-            <div class="card">
-              <div class="card-img">
-                <img src="assets/img/events-2.jpg" alt="...">
-              </div>
-              <div class="card-body">
-                <h5 class="card-title"><a href="">Marketing Strategies</a></h5>
-                <p class="font-italic text-center">Sunday, November 15th at 7:00 pm</p>
-                <p class="card-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo</p>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End Events Section -->
-
+    <!-- ======= WorkShop Information Section ======= -->
+    <div class="events">
+      <div class="container">
+      <br>
+        <style>.button {
+           border: none;
+           color: white;
+           padding: 12px 50px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            }
+            .button1 {background-color: #272727;} /* Sign Up Today */
+            .button2 {background-color: #008CBA;} /* Blue */
+            </style>
+            <center>
+            <button class="button button1" onclick="window.location.href='events.html';">CLICK HERE FOR MORE INFORMATION</button> <br>
+            <button class="button button1" onclick="window.location.href='https://forms.gle/vrE9mLPVMD2CFGji8';">CLICK HERE TO SIGN0UP FOR THE STEM WORKSHOP</button> <br>
+            <button class="button button1" onclick="window.location.href='https://docs.google.com/forms/d/e/1FAIpQLSeJNDN4z36effcSXrYdscvA5ZM4QMUnpQZQZO68D6sLzTfxAw/viewform?usp=sf_link';">CLICK HERE TO SIGN-UP FOR THE ENGLISH WORKSHOP</button> <br>
+            <button class="button button1" onclick="window.location.href='https://forms.gle/wbG2mmTGtRq9nvXg7';">CLICK HERE TO SIGN-UP FOR THE ARTS AND CRAFTS WORKSHOP</button> <br>
+            </center>
+    </div> 
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
