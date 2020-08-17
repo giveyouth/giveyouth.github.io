@@ -396,8 +396,8 @@ h1, h2, h3, h4, h5, h6 {
 --------------------------------------------------------------*/
 #hero {
   width: 100%;
-  height: 80vh;
-  background: url("../img/hero-bg.jpg") top center;
+  height: 85vh;
+  background: url("../img/GIVE_Team.jpg") top center;
   background-size: cover;
   position: relative;
 }
@@ -437,13 +437,13 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 24px;
 }
 
-#hero .btn-get-started {
+#hero .register-btn {
   font-family: "Raleway", sans-serif;
   font-weight: 500;
   font-size: 15px;
   letter-spacing: 1px;
   display: inline-block;
-  padding: 10px 35px;
+  padding: 10px 28px;
   border-radius: 50px;
   transition: 0.5s;
   margin-top: 30px;
@@ -451,10 +451,13 @@ h1, h2, h3, h4, h5, h6 {
   color: #fff;
 }
 
-#hero .btn-get-started:hover {
+#hero .register-btn:hover {
   background: #5fcf80;
   border: 2px solid #5fcf80;
 }
+
+
+
 
 @media (min-width: 1024px) {
   #hero {
@@ -555,6 +558,11 @@ section {
   font-size: 26px;
 }
 
+.about .content p{
+  font-style: italic;
+  padding-top: 15px
+}
+
 .about .content ul {
   list-style: none;
   padding: 0;
@@ -615,6 +623,47 @@ section {
   font-weight: 600;
   color: #37423b;
 }
+
+/*--------------------------------------------------------------
+# As Featured In
+--------------------------------------------------------------*/
+
+.impacted{
+  text-align: center;
+
+}
+
+.impacted h1{
+  font-weight: bold;
+  font-size: 35px;
+}
+
+.impacted h3{
+  padding-top: 20px;
+  text-decoration: underline;
+}
+
+.the-features{
+  margin-top: 65px;
+  margin-left: 100px;
+}
+
+.the-features a{
+  padding: 10px;
+  padding-left: 25px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*--------------------------------------------------------------
 # Why Us
