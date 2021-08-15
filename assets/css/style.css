@@ -1610,3 +1610,86 @@ section {
   color: #fff;
   text-decoration: none;
 }
+/*--------------------------------------------------------------
+# Executive Team
+--------------------------------------------------------------*/
+.executiveteam #exec-photos img{
+  height: 450px;
+  padding: 25px;
+  display: block;
+  margin: 0 auto;
+}
+
+.executiveteam #exec-photos{
+  display: inline-block;
+  margin: 20px;
+  margin-left: 100px
+}
+
+.executiveteam #exec-descriptions {
+  text-align: left;
+  padding-top: 20px;
+  width: 500px;
+  margin: 20px;
+  float: right;
+}
+
+.executiveteam #exec-descriptions #exec-1 {
+  padding-top: 70px;
+}
+
+.executiveteam #exec-descriptions #exec-2, #exec-3, #exec-4, #exec-5, #exec-6 {
+  padding-top: 85px;
+}
+
+
+/*--------------------------------------------------------------
+# Summer Program
+--------------------------------------------------------------*/
+.slideshow-container .mySlides{
+  width: 40%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.slideshow-container .slideshow-right{
+  float: right;
+  display: block;
+  margin-right: 355px;
+}
+
+.slideshow-container .slideshow-left{
+  float: left;
+  display: block;
+  margin-left: 355px;
+}
+
+#description{
+  margin-top: 50px;
+  margin-right: 150px;
+  margin-left: 150px;
+
+}
+
+#description #summerprogram-description{
+  width: 600px;
+  margin-left: 150px;
+}
+
+#description h5{
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+#description #l{
+  text-align: center;
+  margin-top:30px;
+}
+
+#description h3 {
+  margin-top: 50px;
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+}
